@@ -1,2 +1,2 @@
-module KiwiCRM class Person
+module KiwiCRM class Person < OpenStruct
 end end
