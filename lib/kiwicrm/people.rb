@@ -1,10 +1,12 @@
-module KiwiCRM class People
+module KiwiCRM module People
 
-  def self.all
+  extend self
+
+  def all
     ObjectSpace.each_object Person
   end
 
-  def self.find &conditions
+  def find &conditions
     all.find &conditions
   end
 
