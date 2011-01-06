@@ -1,8 +1,8 @@
 module KiwiCRM describe People do
 
   before do
-    @archchancellor = Person.new YAML.load_file('spec/fixtures/people.yml').first
-    @librarian      = Person.new YAML.load_file('spec/fixtures/people.yml').last
+    @archchancellor = People.find { |p| p.id == 'archchancellor' }
+    @librarian      = People.find { |p| p.id == 'librarian' }
   end
 
   describe '.all' do

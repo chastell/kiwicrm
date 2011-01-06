@@ -1,5 +1,7 @@
-- given_names: [Mustrum]
+- id: archchancellor
+  given_names: [Mustrum]
   surname: Ridcully
-- name_prefix: Dr
+- id: librarian
+  name_prefix: Dr
   given_names: [Horace]
   surname: Worblehat
