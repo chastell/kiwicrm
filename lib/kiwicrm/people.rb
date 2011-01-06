@@ -4,4 +4,8 @@ module KiwiCRM class People
     ObjectSpace.each_object Person
   end
 
+  def self.find &conditions
+    all.find &conditions
+  end
+
 end end
