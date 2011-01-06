@@ -6,6 +6,10 @@ module KiwiCRM module People
     find_all
   end
 
+  def id id
+    find { |p| p.id == id }
+  end
+
   private
 
   def each

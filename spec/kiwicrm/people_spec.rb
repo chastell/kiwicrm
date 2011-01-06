@@ -25,4 +25,13 @@ module KiwiCRM describe People do
 
   end
 
+  describe '.id' do
+
+    it 'returns the first Person with the given id' do
+      People.id('archchancellor').should == People.find { |p| p.id == 'archchancellor' }
+      People.id('librarian').should      == People.find { |p| p.id == 'librarian' }
+    end
+
+  end
+
 end end
