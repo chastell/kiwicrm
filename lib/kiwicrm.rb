@@ -1,4 +1,6 @@
 require 'ostruct'
 
-require_relative 'kiwicrm/people'
-require_relative 'kiwicrm/person'
+module KiwiCRM
+  autoload :People, 'kiwicrm/people'
+  autoload :Person, 'kiwicrm/person'
+end
