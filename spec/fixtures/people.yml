@@ -2,6 +2,6 @@
   given_names: [Mustrum]
   surname: Ridcully
 - id: librarian
-  name_prefix: Dr
+  title: Doctor
   given_names: [Horace]
   surname: Worblehat
