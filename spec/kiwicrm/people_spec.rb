@@ -1,8 +1,8 @@
 module KiwiCRM describe People do
 
   before do
-    @archchancellor = People.find { |p| p.id == 'archchancellor' }
-    @librarian      = People.find { |p| p.id == 'librarian' }
+    @archchancellor = People.id 'archchancellor'
+    @librarian      = People.id 'librarian'
   end
 
   describe '.all' do
