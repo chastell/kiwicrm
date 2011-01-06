@@ -1,13 +1,15 @@
 module KiwiCRM module People
 
-  extend self
+  extend self, Enumerable
 
   def all
-    ObjectSpace.each_object Person
+    find_all
   end
 
-  def find &conditions
-    all.find &conditions
+  private
+
+  def each
+    ObjectSpace.each_object(Person) { |p| yield p }
   end
 
 end end
