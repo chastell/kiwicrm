@@ -8,6 +8,11 @@ module KiwiCRM describe Person do
       bengo.given_names.first.should == 'Bengo'
     end
 
+    it 'adds the new Person to People' do
+      People.should_receive(:<<).with an_instance_of Person
+      Person.new
+    end
+
   end
 
 end end

@@ -2,6 +2,9 @@ module KiwiCRM module People
 
   extend self, Enumerable
 
+  def << person
+  end
+
   def all
     select
   end
