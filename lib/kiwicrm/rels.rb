@@ -7,6 +7,10 @@ module KiwiCRM module Rels
     @rels[rel.id] = rel
   end
 
+  def clear
+    @rels = {}
+  end
+
   def of object
     select { |rel| rel.refs.include?({ref: People, id: object.id}) }
   end
