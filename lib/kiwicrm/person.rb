@@ -1,8 +1,5 @@
 module KiwiCRM class Person < Entity
 
-  def initialize *args
-    super
-    People << self
-  end
+  entity_pool People
 
 end end

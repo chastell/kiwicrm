@@ -1,6 +1,7 @@
 module KiwiCRM describe Entity do
 
   class ExampleEntity < Entity
+    entity_pool ExamplePool
   end
 
   describe '.new' do
@@ -10,6 +11,11 @@ module KiwiCRM describe Entity do
       entity.baz = 'qux'
       entity.foo.should == :bar
       entity.baz.should == 'qux'
+    end
+
+    it 'adds the new ExampleEntity to ExamplePool' do
+      ExamplePool.should_receive(:<<).with an_instance_of ExampleEntity
+      ExampleEntity.new
     end
 
   end
