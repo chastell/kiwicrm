@@ -1,0 +1,6 @@
+- id: forty-two
+  refs: [[People, sybil], [People, young_sam]]
+  rels: [parents, children]
+- id: wheres-my-cow
+  refs: [[People, young_sam], [People, sam]]
+  rels: [children, parents]
