@@ -5,13 +5,24 @@ module KiwiCRM describe People do
     @librarian      = People.id :librarian
   end
 
+  describe '.<<' do
+
+    it 'adds the passed object to the pool' do
+      newbie = mock Person, id: :newbie
+      People.id(:newbie).should be_nil
+      People << newbie
+      People.id(:newbie).should == newbie
+    end
+
+  end
+
   describe '.all' do
 
     it 'returns an Enumerator with all the Person objects' do
       People.all.should be_an Enumerator
       People.all.should include @archchancellor
       People.all.should include @librarian
-      People.all.to_a.size.should == 5
+      People.all.to_a.size.should == 6
     end
 
   end
