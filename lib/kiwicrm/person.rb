@@ -1,4 +1,4 @@
-module KiwiCRM class Person < OpenStruct
+module KiwiCRM class Person < Entity
 
   def initialize *args
     super
