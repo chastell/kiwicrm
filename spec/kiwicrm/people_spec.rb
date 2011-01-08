@@ -1,8 +1,8 @@
 module KiwiCRM describe People do
 
   before do
-    @archchancellor = People.id 'archchancellor'
-    @librarian      = People.id 'librarian'
+    @archchancellor = People.id :archchancellor
+    @librarian      = People.id :librarian
   end
 
   describe '.all' do
@@ -28,8 +28,8 @@ module KiwiCRM describe People do
   describe '.id' do
 
     it 'returns the first Person with the given id' do
-      People.id('archchancellor').should == People.find { |p| p.id == 'archchancellor' }
-      People.id('librarian').should      == People.find { |p| p.id == 'librarian' }
+      People.id(:archchancellor).should == People.find { |p| p.id == :archchancellor }
+      People.id(:librarian).should      == People.find { |p| p.id == :librarian }
     end
 
   end

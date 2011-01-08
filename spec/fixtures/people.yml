@@ -1,18 +1,18 @@
-- id: archchancellor
-  given_names: [Mustrum]
-  surname: Ridcully
-- id: librarian
-  title: Doctor
-  given_names: [Horace]
-  surname: Worblehat
-- id: sam
-  title: Sir
-  given_names: [Samuel]
-  surname: Vimes
-- id: sybil
-  title: Lady
-  given_names: [Sybil, Deidre, Olgivanna]
-  surname: Vimes
-- id: young_sam
-  given_names: [Sam]
-  surname: Vimes
+- :id: :archchancellor
+  :given_names: [Mustrum]
+  :surname: Ridcully
+- :id: :librarian
+  :title: Doctor
+  :given_names: [Horace]
+  :surname: Worblehat
+- :id: :sam
+  :title: Sir
+  :given_names: [Samuel]
+  :surname: Vimes
+- :id: :sybil
+  :title: Lady
+  :given_names: [Sybil, Deidre, Olgivanna]
+  :surname: Vimes
+- :id: :young_sam
+  :given_names: [Sam]
+  :surname: Vimes
