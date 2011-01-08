@@ -3,6 +3,8 @@ module KiwiCRM module People
   extend self, Enumerable
 
   def << person
+    @people ||= {}
+    @people[person.id] = person
   end
 
   def all
@@ -16,7 +18,7 @@ module KiwiCRM module People
   private
 
   def each
-    ObjectSpace.each_object(Person) { |p| yield p }
+    (@people or {}).each_value { |person| yield person }
   end
 
 end end
