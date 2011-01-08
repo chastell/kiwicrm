@@ -8,6 +8,11 @@ module KiwiCRM describe Rel do
       ankhd.type.should == :marriage
     end
 
+    it 'adds the new Rel to Rels' do
+      Rels.should_receive(:<<).with an_instance_of Rel
+      Rel.new
+    end
+
   end
 
 end end

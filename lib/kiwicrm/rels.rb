@@ -2,6 +2,9 @@ module KiwiCRM module Rels
 
   extend self, Enumerable
 
+  def << rel
+  end
+
   def of object
     select { |rel| rel.refs.include?({ref: People, id: object.id}) }
   end
