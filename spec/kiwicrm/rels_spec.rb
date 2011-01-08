@@ -1,5 +1,17 @@
 module KiwiCRM describe Rels do
 
+  describe '.<<' do
+
+    it 'adds the passed object to the pool' do
+      person = mock Person, id: :person
+      rel = mock Rel, id: :rel, refs: [{ref: People, id: :person}, {ref: People, id: :person}]
+      Rels.of(person).should be_empty
+      Rels << rel
+      Rels.of(person).should include rel
+    end
+
+  end
+
   describe '.clear' do
 
     it 'clears the Rel pool' do
