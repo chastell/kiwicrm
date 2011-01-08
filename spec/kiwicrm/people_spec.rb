@@ -22,7 +22,7 @@ module KiwiCRM describe People do
       People.all.should be_an Enumerator
       People.all.should include @archchancellor
       People.all.should include @librarian
-      People.all.to_a.size.should == 6
+      People.all.to_a.size.should == 5
     end
 
   end
@@ -30,7 +30,7 @@ module KiwiCRM describe People do
   describe '.clear' do
 
     it 'clears the Person pool' do
-      People.all.to_a.size.should == 6
+      People.all.to_a.size.should == 5
       People.clear
       People.all.to_a.size.should == 0
     end
