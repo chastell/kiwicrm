@@ -27,6 +27,16 @@ module KiwiCRM describe People do
 
   end
 
+  describe '.clear' do
+
+    it 'clears the Person pool' do
+      People.all.to_a.size.should == 6
+      People.clear
+      People.all.to_a.size.should == 0
+    end
+
+  end
+
   describe '.find' do
 
     it 'returns the first Person fulfilling the requirements' do

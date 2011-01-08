@@ -15,6 +15,10 @@ module KiwiCRM module People
     find { |p| p.id == id }
   end
 
+  def clear
+    @people = {}
+  end
+
   private
 
   def each
