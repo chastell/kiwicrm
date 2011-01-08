@@ -3,7 +3,7 @@ module KiwiCRM module People
   extend self, Enumerable
 
   def all
-    find_all
+    select
   end
 
   def id id
