@@ -1,20 +1,20 @@
-RSpec.configure do |config|
+module KiwiCRM RSpec.configure do |config|
 
   config.before do
 
-    KiwiCRM::People.clear
+    People.clear
 
     YAML.load_file('spec/fixtures/people.yml').each do |hash|
-      KiwiCRM::Person.new hash
+      Person.new hash
     end
 
-    KiwiCRM::Rels.clear
+    Rels.clear
 
     YAML.load_file('spec/fixtures/rels.yml').each do |hash|
       hash[:refs].map! { |ref| {ref: KiwiCRM.const_get(ref.first), id: ref.last} }
-      KiwiCRM::Rel.new hash
+      Rel.new hash
     end
 
   end
 
-end
+end end
