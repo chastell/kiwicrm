@@ -6,16 +6,26 @@ module KiwiCRM describe Entity do
 
   describe '.new' do
 
-    it 'allows for setting and retrieving arbitrary properties' do
+    it 'allows for setting arbitrary properties' do
       entity = ExampleEntity.new foo: :bar
-      entity.baz = 'qux'
       entity.foo.should == :bar
-      entity.baz.should == 'qux'
     end
 
     it 'adds the new ExampleEntity to ExamplePool' do
       ExamplePool.should_receive(:<<).with an_instance_of ExampleEntity
       ExampleEntity.new
+    end
+
+  end
+
+  describe '#method_missing' do
+
+    it 'allows for setting and getting arbitrary properties' do
+      entity = ExampleEntity.new foo: :bar
+      entity.baz = 'qux'
+      entity.baz.should == 'qux'
+      lambda { entity.baz :quux }.should raise_error
+      lambda { entity.corge     }.should raise_error
     end
 
   end
