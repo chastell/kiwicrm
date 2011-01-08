@@ -3,6 +3,8 @@ module KiwiCRM module Rels
   extend self, Enumerable
 
   def << rel
+    @rels ||= {}
+    @rels[rel.id] = rel
   end
 
   def of object
@@ -12,7 +14,7 @@ module KiwiCRM module Rels
   private
 
   def each
-    ObjectSpace.each_object(Rel) { |r| yield r }
+    (@rels or {}).each_value { |rel| yield rel }
   end
 
 end end
