@@ -1,5 +1,3 @@
-require 'ostruct'
-
 module KiwiCRM
   autoload :Entity,     'kiwicrm/entity'
   autoload :EntityPool, 'kiwicrm/entity_pool'
