@@ -4,7 +4,8 @@ module KiwiCRM RSpec.configure do |config|
     extend EntityPool
   end
 
-  class ExampleEntity < Entity
+  class ExampleEntity
+    include Entity
     entity_pool ExamplePool
   end
 

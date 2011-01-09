@@ -1,7 +1,11 @@
-module KiwiCRM class Entity
+module KiwiCRM module Entity
 
-  def self.entity_pool entity_pool = nil
-    @entity_pool ||= entity_pool
+  module ClassMethods
+
+    def entity_pool entity_pool = nil
+      @entity_pool ||= entity_pool
+    end
+
   end
 
   def initialize hash = {}
@@ -17,6 +21,12 @@ module KiwiCRM class Entity
     else
       super
     end
+  end
+
+  private
+
+  def self.included receiver
+    receiver.extend ClassMethods
   end
 
 end end

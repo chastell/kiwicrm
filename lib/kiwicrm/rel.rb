@@ -1,4 +1,6 @@
-module KiwiCRM class Rel < Entity
+module KiwiCRM class Rel
+
+  include Entity
 
   entity_pool Rels
 
