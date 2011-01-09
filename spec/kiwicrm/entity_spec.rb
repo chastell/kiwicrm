@@ -1,9 +1,5 @@
 module KiwiCRM describe Entity do
 
-  class ExampleEntity < Entity
-    entity_pool ExamplePool
-  end
-
   describe '.new' do
 
     it 'allows for setting arbitrary properties' do

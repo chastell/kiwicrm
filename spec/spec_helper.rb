@@ -1,5 +1,13 @@
 module KiwiCRM RSpec.configure do |config|
 
+  module ExamplePool
+    extend EntityPool
+  end
+
+  class ExampleEntity < Entity
+    entity_pool ExamplePool
+  end
+
   config.before do
 
     People.clear

@@ -1,9 +1,5 @@
 module KiwiCRM describe EntityPool do
 
-  module ExamplePool
-    extend self, EntityPool
-  end
-
   before do
     ExamplePool.clear
   end
