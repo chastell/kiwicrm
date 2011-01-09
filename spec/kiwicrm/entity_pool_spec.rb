@@ -8,9 +8,9 @@ module KiwiCRM describe EntityPool do
 
     it 'adds the passed object to the pool' do
       object = OpenStruct.new id: :object
-      ExamplePool.find { |e| e.id == :object}.should be_nil
+      ExamplePool.id(:object).should be_nil
       ExamplePool << object
-      ExamplePool.find { |e| e.id == :object}.should == object
+      ExamplePool.id(:object).should == object
     end
 
   end
@@ -18,7 +18,7 @@ module KiwiCRM describe EntityPool do
   describe '.clear' do
 
     it 'clears the pool' do
-      7.times { ExamplePool << OpenStruct.new(id: rand) }
+      7.times { ExampleEntity.new }
       ExamplePool.to_a.size.should == 7
       ExamplePool.clear
       ExamplePool.to_a.size.should == 0
@@ -42,7 +42,7 @@ module KiwiCRM describe EntityPool do
     it 'returns the first object with the given id' do
       ExamplePool << (fun  = OpenStruct.new id: :fun)
       ExamplePool << (work = OpenStruct.new id: :work)
-      ExamplePool.id(:fun).should == fun
+      ExamplePool.id(:fun).should  == fun
       ExamplePool.id(:work).should == work
     end
 
