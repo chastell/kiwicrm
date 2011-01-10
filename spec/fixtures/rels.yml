@@ -1,3 +1,6 @@
+- :id: :ankhd
+  :refs: [[People, :sam], [People, :sybil]]
+  :rels: [:spouses, :spouses]
 - :id: :forty-two
   :refs: [[People, :sybil], [People, :young_sam]]
   :rels: [:parents, :children]

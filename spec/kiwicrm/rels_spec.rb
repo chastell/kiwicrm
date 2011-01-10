@@ -6,7 +6,7 @@ module KiwiCRM describe Rels do
       rel = Rel.new refs: [{ref: People, id: :young_sam}, {ref: People, id: :sam}]
       sams_rels = Rels.of People.id(:sam)
       sams_rels.should include rel
-      sams_rels.size.should == 2
+      sams_rels.size.should == 3
     end
 
   end
