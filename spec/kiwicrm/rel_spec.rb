@@ -21,16 +21,6 @@ module KiwiCRM describe Rel do
 
   end
 
-  describe '#rel_of' do
-
-    it 'returns a rel → ref mapping from the given side of the Rel to the other' do
-      Rels.id(:'forty-two').rel_of(People.id :sybil).should     == [:children, {ref: People, id: :young_sam}]
-      Rels.id(:'forty-two').rel_of(People.id :young_sam).should == [:parents,  {ref: People, id: :sybil}]
-      Rels.id(:'forty-two').rel_of(People.id :sam).should       == nil
-    end
-
-  end
-
   describe '#rel_to_other' do
 
     it 'returns the relationship to the other object' do
