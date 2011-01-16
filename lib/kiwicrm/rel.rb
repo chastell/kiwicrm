@@ -4,6 +4,13 @@ module KiwiCRM class Rel
 
   entity_pool Rels
 
+  def rel_of object
+    case {ref: object.class.entity_pool, id: object.id}
+    when refs.first then [rels.last,  refs.last]
+    when refs.last  then [rels.first, refs.first]
+    end
+  end
+
   def refs? object
     refs.include?({ref: object.class.entity_pool, id: object.id})
   end
