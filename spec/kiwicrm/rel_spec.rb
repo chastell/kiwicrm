@@ -11,6 +11,16 @@ module KiwiCRM describe Rel do
 
   end
 
+  describe '#other_ref' do
+
+    it 'returns the ref in the Rel referencing the other object than passed' do
+      Rels.id(:'forty-two').other_ref(People.id :sybil).should     == {ref: People, id: :young_sam}
+      Rels.id(:'forty-two').other_ref(People.id :young_sam).should == {ref: People, id: :sybil}
+      Rels.id(:'forty-two').other_ref(People.id :sam).should       == nil
+    end
+
+  end
+
   describe '#rel_of' do
 
     it 'returns a rel → ref mapping from the given side of the Rel to the other' do
