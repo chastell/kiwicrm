@@ -26,4 +26,16 @@ module KiwiCRM describe Entity do
 
   end
 
+  describe '#related' do
+
+    it 'returns the relevant EntityRels object, allowing access to related object refs' do
+      person = ExampleEntity.new id: :person
+      event  = ExampleEntity.new id: :event
+      rel    = Rel.new refs: [{ref: ExamplePool, id: :person}, {ref: ExamplePool, id: :event}], rels: [:participants, :events]
+      person.related.events.should      == [{ref: ExamplePool, id: :event}]
+      event.related.participants.should == [{ref: ExamplePool, id: :person}]
+    end
+
+  end
+
 end end

@@ -23,6 +23,10 @@ module KiwiCRM module Entity
     end
   end
 
+  def related
+    EntityRels.new self
+  end
+
   private
 
   def self.included receiver
