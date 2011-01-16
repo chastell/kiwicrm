@@ -2,7 +2,7 @@ module KiwiCRM class EntityRels < Array
 
   def initialize object
     super Rels.select { |rel| rel.refs? object }
-    @rels = Hash[map { |rel| rel.rel_of object }.group_by(&:first).map { |rel, rel_ofs| [rel, rel_ofs.map(&:last)] }]
+    @rels = group_by { |rel| rel.rel_to_other object }.each_value { |rels| rels.map! { |rel| rel.other_ref object } }
   end
 
   def method_missing method, *args, &block
