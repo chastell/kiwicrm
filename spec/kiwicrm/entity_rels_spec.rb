@@ -3,7 +3,7 @@ module KiwiCRM describe EntityRels do
   describe '.new' do
 
     it 'creates a store of Rel objects referencing the parameter' do
-      rel = Rel.new refs: [{ref: People, id: :young_sam}, {ref: People, id: :sam}]
+      rel = Rel.new refs: [{ref: People, id: :young_sam}, {ref: People, id: :sam}], rels: [:students, :teachers]
       sams = EntityRels.new People.id :sam
       sams.should include rel
       sams.size.should == 3
