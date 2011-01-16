@@ -21,6 +21,16 @@ module KiwiCRM describe Rel do
 
   end
 
+  describe '#rel_to_other' do
+
+    it 'returns the relationship to the other object' do
+      Rels.id(:'forty-two').rel_to_other(People.id :sybil).should     == :children
+      Rels.id(:'forty-two').rel_to_other(People.id :young_sam).should == :parents
+      Rels.id(:'forty-two').rel_to_other(People.id :sam).should       == nil
+    end
+
+  end
+
   describe '#refs?' do
 
     it 'returns a predicate whether the Rel refs the given object' do

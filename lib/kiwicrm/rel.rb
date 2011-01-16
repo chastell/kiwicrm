@@ -11,6 +11,13 @@ module KiwiCRM class Rel
     end
   end
 
+  def rel_to_other object
+    case {ref: object.class.entity_pool, id: object.id}
+    when refs.first then rels.last
+    when refs.last  then rels.first
+    end
+  end
+
   def refs? object
     refs.include?({ref: object.class.entity_pool, id: object.id})
   end
