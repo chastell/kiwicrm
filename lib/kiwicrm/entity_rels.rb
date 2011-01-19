@@ -7,7 +7,7 @@ module KiwiCRM class EntityRels
   end
 
   def method_missing method, *args, &block
-    @rels[method] or super
+    @rels[method].each or super
   end
 
 end end

@@ -34,8 +34,8 @@ module KiwiCRM describe Entity do
       person = ExampleEntity.new id: :person
       event  = ExampleEntity.new id: :event
       rel    = Rel.new refs: [{ref: ExamplePool, id: :person}, {ref: ExamplePool, id: :event}], rels: [:participants, :events]
-      person.related.events.should      == [{ref: ExamplePool, id: :event}]
-      event.related.participants.should == [{ref: ExamplePool, id: :person}]
+      person.related.events.should      include({ref: ExamplePool, id: :event})
+      event.related.participants.should include({ref: ExamplePool, id: :person})
     end
 
   end

@@ -7,10 +7,11 @@ module KiwiCRM describe EntityRels do
       sybils     = EntityRels.new People.id :sybil
       young_sams = EntityRels.new People.id :young_sam
 
-      sams.spouses.should    == [{ref: People, id: :sybil}]
-      sybils.spouses.should  == [{ref: People, id: :sam}]
-      sams.children.should   == [{ref: People, id: :young_sam}]
-      sybils.children.should == [{ref: People, id: :young_sam}]
+      sams.spouses.should be_an Enumerator
+      sams.spouses.should       include({ref: People, id: :sybil})
+      sybils.spouses.should     include({ref: People, id: :sam})
+      sams.children.should      include({ref: People, id: :young_sam})
+      sybils.children.should    include({ref: People, id: :young_sam})
       young_sams.parents.should include({ref: People, id: :sam})
       young_sams.parents.should include({ref: People, id: :sybil})
     end
