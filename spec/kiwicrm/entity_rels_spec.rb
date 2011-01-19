@@ -14,6 +14,8 @@ module KiwiCRM describe EntityRels do
       sybils.children.should    include({ref: People, id: :young_sam})
       young_sams.parents.should include({ref: People, id: :sam})
       young_sams.parents.should include({ref: People, id: :sybil})
+
+      lambda { young_sams.toys }.should raise_error NoMethodError, /undefined method `toys'/
     end
 
   end
