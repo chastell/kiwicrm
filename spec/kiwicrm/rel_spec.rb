@@ -11,6 +11,16 @@ module KiwiCRM describe Rel do
 
   end
 
+  describe '#other_obj' do
+
+    it 'returns the other object in the Rel' do
+      Rels.id(:'forty-two').other_obj(People.id :sybil).should     == People.id(:young_sam)
+      Rels.id(:'forty-two').other_obj(People.id :young_sam).should == People.id(:sybil)
+      Rels.id(:'forty-two').other_obj(People.id :sam).should       == nil
+    end
+
+  end
+
   describe '#other_ref' do
 
     it 'returns the ref in the Rel referencing the other object than passed' do

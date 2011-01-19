@@ -4,6 +4,11 @@ module KiwiCRM class Rel
 
   entity_pool Rels
 
+  def other_obj object
+    ref = other_ref object
+    ref ? ref[:ref].id(ref[:id]) : nil
+  end
+
   def other_ref object
     case {ref: object.class.entity_pool, id: object.id}
     when refs.first then refs.last
