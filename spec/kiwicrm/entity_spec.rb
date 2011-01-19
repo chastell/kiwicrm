@@ -18,10 +18,12 @@ module KiwiCRM describe Entity do
 
     it 'allows for setting and getting arbitrary properties' do
       entity = ExampleEntity.new foo: :bar
-      entity.baz = 'qux'
-      entity.baz.should == 'qux'
-      lambda { entity.baz :quux }.should raise_error
-      lambda { entity.corge     }.should raise_error
+      entity.foo.should == :bar
+      entity.foo = :baz
+      entity.foo.should == :baz
+      entity.qux = 'quux'
+      entity.qux.should == 'quux'
+      lambda { entity.corge }.should raise_error NoMethodError
     end
 
   end

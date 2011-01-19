@@ -16,10 +16,8 @@ module KiwiCRM module Entity
   def method_missing method, *args, &block
     if method =~ /.=$/
       @properties[method[0...-1].to_sym] = args.first
-    elsif args.empty? and @properties[method]
-      @properties[method]
     else
-      super
+      @properties[method] or super
     end
   end
 
